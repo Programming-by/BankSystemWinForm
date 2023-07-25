@@ -1,0 +1,18 @@
+C:\Users\User\Source\Repos\BankSystemWinForm\bin\Debug\BankSystemWinForm.exe.config
+C:\Users\User\Source\Repos\BankSystemWinForm\bin\Debug\BankSystemWinForm.exe
+C:\Users\User\Source\Repos\BankSystemWinForm\bin\Debug\BankSystemWinForm.pdb
+C:\Users\User\Source\Repos\BankSystemWinForm\bin\Debug\Bank Business Layer.dll
+C:\Users\User\Source\Repos\BankSystemWinForm\bin\Debug\Bank DataAccessLayer.dll
+C:\Users\User\Source\Repos\BankSystemWinForm\bin\Debug\Bank Business Layer.pdb
+C:\Users\User\Source\Repos\BankSystemWinForm\bin\Debug\Bank DataAccessLayer.pdb
+C:\Users\User\Source\Repos\BankSystemWinForm\obj\Debug\BankSystemPresentationLayer.csproj.AssemblyReference.cache
+C:\Users\User\Source\Repos\BankSystemWinForm\obj\Debug\BankSystemPresentationLayer.csproj.SuggestedBindingRedirects.cache
+C:\Users\User\Source\Repos\BankSystemWinForm\obj\Debug\BankSystemWinForm.Properties.Resources.resources
+C:\Users\User\Source\Repos\BankSystemWinForm\obj\Debug\BankSystemPresentationLayer.csproj.GenerateResource.cache
+C:\Users\User\Source\Repos\BankSystemWinForm\obj\Debug\BankSystemPresentationLayer.csproj.CoreCompileInputs.cache
+C:\Users\User\Source\Repos\BankSystemWinForm\obj\Debug\BankSystemPresentationLayer.csproj.CopyComplete
+C:\Users\User\Source\Repos\BankSystemWinForm\obj\Debug\BankSystemWinForm.exe
+C:\Users\User\Source\Repos\BankSystemWinForm\obj\Debug\BankSystemWinForm.pdb
+C:\Users\User\Source\Repos\BankSystemWinForm\obj\Debug\BankSystemWinForm.frmAddEditClient.resources
+C:\Users\User\Source\Repos\BankSystemWinForm\obj\Debug\BankSystemWinForm.frmFindClient.resources
+C:\Users\User\Source\Repos\BankSystemWinForm\obj\Debug\BankSystemWinForm.frmListClients.resources
