@@ -16,3 +16,4 @@ C:\Users\User\Source\Repos\BankSystemWinForm\obj\Debug\BankSystemWinForm.pdb
 C:\Users\User\Source\Repos\BankSystemWinForm\obj\Debug\BankSystemWinForm.frmAddEditClient.resources
 C:\Users\User\Source\Repos\BankSystemWinForm\obj\Debug\BankSystemWinForm.frmFindClient.resources
 C:\Users\User\Source\Repos\BankSystemWinForm\obj\Debug\BankSystemWinForm.frmListClients.resources
+C:\Users\User\Source\Repos\BankSystemWinForm\obj\Debug\BankSystemWinForm.frmUpdateClient.resources

@@ -29,30 +29,34 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            this.dgvAllClients = new System.Windows.Forms.DataGridView();
+            this.dgvAllClientsAndAllUsers = new System.Windows.Forms.DataGridView();
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.editToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.deleteToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.listClients = new System.Windows.Forms.Button();
             this.addClient = new System.Windows.Forms.Button();
             this.deleteClient = new System.Windows.Forms.Button();
             this.updateClient = new System.Windows.Forms.Button();
             this.findClient = new System.Windows.Forms.Button();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvAllClients)).BeginInit();
+            this.btnListUsers = new System.Windows.Forms.Button();
+            this.btnAddNewUser = new System.Windows.Forms.Button();
+            this.btnDeleteUser = new System.Windows.Forms.Button();
+            this.btnUpdateUser = new System.Windows.Forms.Button();
+            this.btnFindUser = new System.Windows.Forms.Button();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvAllClientsAndAllUsers)).BeginInit();
             this.contextMenuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
-            // dgvAllClients
+            // dgvAllClientsAndAllUsers
             // 
-            this.dgvAllClients.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvAllClients.ContextMenuStrip = this.contextMenuStrip1;
-            this.dgvAllClients.Location = new System.Drawing.Point(314, 26);
-            this.dgvAllClients.Name = "dgvAllClients";
-            this.dgvAllClients.RowHeadersWidth = 51;
-            this.dgvAllClients.RowTemplate.Height = 24;
-            this.dgvAllClients.Size = new System.Drawing.Size(1085, 478);
-            this.dgvAllClients.TabIndex = 0;
+            this.dgvAllClientsAndAllUsers.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvAllClientsAndAllUsers.ContextMenuStrip = this.contextMenuStrip1;
+            this.dgvAllClientsAndAllUsers.Location = new System.Drawing.Point(314, 26);
+            this.dgvAllClientsAndAllUsers.Name = "dgvAllClientsAndAllUsers";
+            this.dgvAllClientsAndAllUsers.RowHeadersWidth = 51;
+            this.dgvAllClientsAndAllUsers.RowTemplate.Height = 24;
+            this.dgvAllClientsAndAllUsers.Size = new System.Drawing.Size(1085, 478);
+            this.dgvAllClientsAndAllUsers.TabIndex = 0;
             // 
             // contextMenuStrip1
             // 
@@ -77,23 +81,11 @@
             this.deleteToolStripMenuItem.Text = "Delete";
             this.deleteToolStripMenuItem.Click += new System.EventHandler(this.deleteToolStripMenuItem_Click);
             // 
-            // comboBox1
-            // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Items.AddRange(new object[] {
-            "Clients",
-            "Users"});
-            this.comboBox1.Location = new System.Drawing.Point(12, 26);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(271, 24);
-            this.comboBox1.TabIndex = 1;
-            this.comboBox1.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
-            // 
             // listClients
             // 
-            this.listClients.Location = new System.Drawing.Point(12, 89);
+            this.listClients.Location = new System.Drawing.Point(12, 26);
             this.listClients.Name = "listClients";
-            this.listClients.Size = new System.Drawing.Size(219, 70);
+            this.listClients.Size = new System.Drawing.Size(249, 52);
             this.listClients.TabIndex = 2;
             this.listClients.Text = "List Clients";
             this.listClients.UseVisualStyleBackColor = true;
@@ -101,9 +93,9 @@
             // 
             // addClient
             // 
-            this.addClient.Location = new System.Drawing.Point(12, 190);
+            this.addClient.Location = new System.Drawing.Point(12, 99);
             this.addClient.Name = "addClient";
-            this.addClient.Size = new System.Drawing.Size(219, 70);
+            this.addClient.Size = new System.Drawing.Size(249, 52);
             this.addClient.TabIndex = 3;
             this.addClient.Text = "Add New Client";
             this.addClient.UseVisualStyleBackColor = true;
@@ -111,47 +103,99 @@
             // 
             // deleteClient
             // 
-            this.deleteClient.Location = new System.Drawing.Point(12, 279);
+            this.deleteClient.Location = new System.Drawing.Point(12, 176);
             this.deleteClient.Name = "deleteClient";
-            this.deleteClient.Size = new System.Drawing.Size(219, 70);
+            this.deleteClient.Size = new System.Drawing.Size(249, 52);
             this.deleteClient.TabIndex = 4;
             this.deleteClient.Text = "Delete Client";
             this.deleteClient.UseVisualStyleBackColor = true;
+            this.deleteClient.Click += new System.EventHandler(this.deleteClient_Click);
             // 
             // updateClient
             // 
-            this.updateClient.Location = new System.Drawing.Point(12, 372);
+            this.updateClient.Location = new System.Drawing.Point(12, 247);
             this.updateClient.Name = "updateClient";
-            this.updateClient.Size = new System.Drawing.Size(219, 70);
+            this.updateClient.Size = new System.Drawing.Size(249, 52);
             this.updateClient.TabIndex = 5;
             this.updateClient.Text = "Update Client";
             this.updateClient.UseVisualStyleBackColor = true;
+            this.updateClient.Click += new System.EventHandler(this.updateClient_Click);
             // 
             // findClient
             // 
-            this.findClient.Location = new System.Drawing.Point(12, 458);
+            this.findClient.Location = new System.Drawing.Point(12, 321);
             this.findClient.Name = "findClient";
-            this.findClient.Size = new System.Drawing.Size(219, 70);
+            this.findClient.Size = new System.Drawing.Size(249, 52);
             this.findClient.TabIndex = 6;
             this.findClient.Text = "Find Client";
             this.findClient.UseVisualStyleBackColor = true;
             this.findClient.Click += new System.EventHandler(this.findClient_Click);
             // 
+            // btnListUsers
+            // 
+            this.btnListUsers.Location = new System.Drawing.Point(12, 396);
+            this.btnListUsers.Name = "btnListUsers";
+            this.btnListUsers.Size = new System.Drawing.Size(249, 52);
+            this.btnListUsers.TabIndex = 7;
+            this.btnListUsers.Text = "List Users";
+            this.btnListUsers.UseVisualStyleBackColor = true;
+            this.btnListUsers.Click += new System.EventHandler(this.btnListUsers_Click);
+            // 
+            // btnAddNewUser
+            // 
+            this.btnAddNewUser.Location = new System.Drawing.Point(12, 462);
+            this.btnAddNewUser.Name = "btnAddNewUser";
+            this.btnAddNewUser.Size = new System.Drawing.Size(249, 52);
+            this.btnAddNewUser.TabIndex = 8;
+            this.btnAddNewUser.Text = "Add New User";
+            this.btnAddNewUser.UseVisualStyleBackColor = true;
+            // 
+            // btnDeleteUser
+            // 
+            this.btnDeleteUser.Location = new System.Drawing.Point(12, 533);
+            this.btnDeleteUser.Name = "btnDeleteUser";
+            this.btnDeleteUser.Size = new System.Drawing.Size(249, 52);
+            this.btnDeleteUser.TabIndex = 9;
+            this.btnDeleteUser.Text = "Delete User";
+            this.btnDeleteUser.UseVisualStyleBackColor = true;
+            // 
+            // btnUpdateUser
+            // 
+            this.btnUpdateUser.Location = new System.Drawing.Point(12, 600);
+            this.btnUpdateUser.Name = "btnUpdateUser";
+            this.btnUpdateUser.Size = new System.Drawing.Size(249, 52);
+            this.btnUpdateUser.TabIndex = 10;
+            this.btnUpdateUser.Text = "Update User";
+            this.btnUpdateUser.UseVisualStyleBackColor = true;
+            // 
+            // btnFindUser
+            // 
+            this.btnFindUser.Location = new System.Drawing.Point(12, 658);
+            this.btnFindUser.Name = "btnFindUser";
+            this.btnFindUser.Size = new System.Drawing.Size(249, 52);
+            this.btnFindUser.TabIndex = 11;
+            this.btnFindUser.Text = "Find User";
+            this.btnFindUser.UseVisualStyleBackColor = true;
+            // 
             // frmListClients
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1481, 526);
+            this.ClientSize = new System.Drawing.Size(1481, 727);
+            this.Controls.Add(this.btnFindUser);
+            this.Controls.Add(this.btnUpdateUser);
+            this.Controls.Add(this.btnDeleteUser);
+            this.Controls.Add(this.btnAddNewUser);
+            this.Controls.Add(this.btnListUsers);
             this.Controls.Add(this.findClient);
             this.Controls.Add(this.updateClient);
             this.Controls.Add(this.deleteClient);
             this.Controls.Add(this.addClient);
             this.Controls.Add(this.listClients);
-            this.Controls.Add(this.comboBox1);
-            this.Controls.Add(this.dgvAllClients);
+            this.Controls.Add(this.dgvAllClientsAndAllUsers);
             this.Name = "frmListClients";
             this.Text = "Form1";
-            ((System.ComponentModel.ISupportInitialize)(this.dgvAllClients)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvAllClientsAndAllUsers)).EndInit();
             this.contextMenuStrip1.ResumeLayout(false);
             this.ResumeLayout(false);
 
@@ -159,8 +203,7 @@
 
         #endregion
 
-        private System.Windows.Forms.DataGridView dgvAllClients;
-        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.DataGridView dgvAllClientsAndAllUsers;
         private System.Windows.Forms.Button listClients;
         private System.Windows.Forms.Button addClient;
         private System.Windows.Forms.Button deleteClient;
@@ -169,6 +212,11 @@
         private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
         private System.Windows.Forms.ToolStripMenuItem editToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem deleteToolStripMenuItem;
+        private System.Windows.Forms.Button btnListUsers;
+        private System.Windows.Forms.Button btnAddNewUser;
+        private System.Windows.Forms.Button btnDeleteUser;
+        private System.Windows.Forms.Button btnUpdateUser;
+        private System.Windows.Forms.Button btnFindUser;
     }
 }
 

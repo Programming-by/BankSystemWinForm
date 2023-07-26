@@ -63,6 +63,8 @@ namespace BankSystemWinForm
             txtPinCode.Text = _Person.PinCode;
             txtBalance.Text = _Client.Balance;
 
+            txtAccountNumber.ReadOnly = true;
+
         }
 
         private void btnSave_Click(object sender, EventArgs e)
@@ -71,7 +73,7 @@ namespace BankSystemWinForm
             _Person.Name = txtName.Text;
             _Person.Email = txtEmail.Text;
             _Person.Phone = txtPhone.Text;
-            _Person.PinCode = txtBalance.Text;
+            _Person.PinCode = txtPinCode.Text;
             _Client.Balance = txtBalance.Text;
 
             if (_Person.Save())
@@ -91,7 +93,7 @@ namespace BankSystemWinForm
 
 
             _Mode = enMode.Update;
-            lblMode.Text = "Edit Client with ID " + _ClientID.ToString();
+            lblMode.Text = "Edit Client with ID " + _Person.PersonID.ToString();
             lblClientID.Text = _Client.PersonID.ToString();
 
 
