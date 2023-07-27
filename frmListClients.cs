@@ -6,13 +6,6 @@ using UserBusinessLayer;
 
 namespace BankSystemWinForm
 {
-    /*
-     List Users
-     Add User
-     Update User
-     Delete User
-     Find User
-     */
     public partial class frmListClients : Form
     {
         public frmListClients()
@@ -111,10 +104,68 @@ namespace BankSystemWinForm
         private void btnListUsers_Click(object sender, EventArgs e)
         {
             _RefreshUsersList();
+
+            dgvAllClientsAndAllUsers.ContextMenuStrip = contextMenuStrip2;
+
         }
-    
-    
-    
-    
+
+        private void btnAddNewUser_Click(object sender, EventArgs e)
+        {
+            frmAddEditUser frm = new frmAddEditUser(-1);
+
+            frm.ShowDialog();
+
+            _RefreshUsersList();
+        }
+
+        private void deleteToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            if (MessageBox.Show("Are you sure you want to delete User [" + dgvAllClientsAndAllUsers.CurrentRow.Cells[0].Value + "]", "Confirm Delete", MessageBoxButtons.OKCancel) == DialogResult.OK)
+            {
+                if (clsUser.DeleteUser((int)dgvAllClientsAndAllUsers.CurrentRow.Cells[0].Value))
+                {
+                    if (clsPerson.DeletePerson((int)dgvAllClientsAndAllUsers.CurrentRow.Cells[0].Value))
+                    {
+                        MessageBox.Show("User Deleted Successfully.");
+                        _RefreshUsersList();
+                    }
+                }
+            }
+
+        }
+
+        private void editToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            frmAddEditUser frm = new frmAddEditUser((int)dgvAllClientsAndAllUsers.CurrentRow.Cells[0].Value);
+
+            frm.ShowDialog();
+
+            _RefreshUsersList();
+
+        }
+
+        private void btnFindUser_Click(object sender, EventArgs e)
+        {
+            frmFindUser frm = new frmFindUser();
+
+            frm.ShowDialog();
+
+        }
+
+        private void btnDeleteUser_Click(object sender, EventArgs e)
+        {
+            frmFindUser frm = new frmFindUser(true);
+
+            frm.ShowDialog();
+        }
+
+        private void btnUpdateUser_Click(object sender, EventArgs e)
+        {
+            frmUpdateUser frm = new frmUpdateUser();
+
+            frm.ShowDialog();
+
+            _RefreshUsersList();
+        }
     }
 }
