@@ -52,6 +52,12 @@
     <Compile Include="frmAddEditUser.Designer.cs">
       <DependentUpon>frmAddEditUser.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmDepositAndWithdraw.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmDepositAndWithdraw.Designer.cs">
+      <DependentUpon>frmDepositAndWithdraw.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmFindUser.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -76,6 +82,12 @@
     <Compile Include="frmFindClient.Designer.cs">
       <DependentUpon>frmFindClient.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmLogin.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmLogin.Designer.cs">
+      <DependentUpon>frmLogin.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmUpdateClient.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -93,6 +105,9 @@
     <EmbeddedResource Include="frmAddEditUser.resx">
       <DependentUpon>frmAddEditUser.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="frmDepositAndWithdraw.resx">
+      <DependentUpon>frmDepositAndWithdraw.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frmFindUser.resx">
       <DependentUpon>frmFindUser.cs</DependentUpon>
     </EmbeddedResource>
@@ -104,6 +119,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmFindClient.resx">
       <DependentUpon>frmFindClient.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmLogin.resx">
+      <DependentUpon>frmLogin.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmUpdateClient.resx">
       <DependentUpon>frmUpdateClient.cs</DependentUpon>

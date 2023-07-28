@@ -8,6 +8,14 @@ namespace BankSystemWinForm
 {
     public partial class frmListClients : Form
     {
+        /*
+         Permissions
+         Currency Exchange
+         
+         */
+
+        float TotalBalances = 0;
+
         public frmListClients()
         {
             InitializeComponent();
@@ -166,6 +174,41 @@ namespace BankSystemWinForm
             frm.ShowDialog();
 
             _RefreshUsersList();
+        }
+
+        private void btnDeposit_Click(object sender, EventArgs e)
+        {
+            frmDepositAndWithdraw frm = new frmDepositAndWithdraw(0);
+
+            frm.ShowDialog();
+        }
+
+        private void btnWithdraw_Click(object sender, EventArgs e)
+        {
+            frmDepositAndWithdraw frm = new frmDepositAndWithdraw(-1);
+
+            frm.ShowDialog();
+
+            
+
+        }
+
+        private void btnTotalBalances_Click(object sender, EventArgs e)
+        {
+
+            dgvAllClientsAndAllUsers.DataSource = clsClient.GetTotalBalances();
+
+            dgvAllClientsAndAllUsers.ContextMenuStrip = null;
+
+            TotalBalances = clsClient.Sum();
+
+            lblTotalBalances.Text = TotalBalances.ToString() + "$";
+
+            lblTotalBalancesText.Visible = true;
+            lblTotalBalances.Visible = true;
+
+
+
         }
     }
 }

@@ -46,6 +46,11 @@
             this.contextMenuStrip2 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.editToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.deleteToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.btnDeposit = new System.Windows.Forms.Button();
+            this.btnWithdraw = new System.Windows.Forms.Button();
+            this.btnTotalBalances = new System.Windows.Forms.Button();
+            this.lblTotalBalancesText = new System.Windows.Forms.Label();
+            this.lblTotalBalances = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dgvAllClientsAndAllUsers)).BeginInit();
             this.contextMenuStrip1.SuspendLayout();
             this.contextMenuStrip2.SuspendLayout();
@@ -197,22 +202,79 @@
             // editToolStripMenuItem1
             // 
             this.editToolStripMenuItem1.Name = "editToolStripMenuItem1";
-            this.editToolStripMenuItem1.Size = new System.Drawing.Size(210, 24);
+            this.editToolStripMenuItem1.Size = new System.Drawing.Size(122, 24);
             this.editToolStripMenuItem1.Text = "Edit";
             this.editToolStripMenuItem1.Click += new System.EventHandler(this.editToolStripMenuItem1_Click);
             // 
             // deleteToolStripMenuItem1
             // 
             this.deleteToolStripMenuItem1.Name = "deleteToolStripMenuItem1";
-            this.deleteToolStripMenuItem1.Size = new System.Drawing.Size(210, 24);
+            this.deleteToolStripMenuItem1.Size = new System.Drawing.Size(122, 24);
             this.deleteToolStripMenuItem1.Text = "Delete";
             this.deleteToolStripMenuItem1.Click += new System.EventHandler(this.deleteToolStripMenuItem1_Click);
+            // 
+            // btnDeposit
+            // 
+            this.btnDeposit.Location = new System.Drawing.Point(314, 545);
+            this.btnDeposit.Name = "btnDeposit";
+            this.btnDeposit.Size = new System.Drawing.Size(249, 52);
+            this.btnDeposit.TabIndex = 12;
+            this.btnDeposit.Text = "Deposit";
+            this.btnDeposit.UseVisualStyleBackColor = true;
+            this.btnDeposit.Click += new System.EventHandler(this.btnDeposit_Click);
+            // 
+            // btnWithdraw
+            // 
+            this.btnWithdraw.Location = new System.Drawing.Point(586, 545);
+            this.btnWithdraw.Name = "btnWithdraw";
+            this.btnWithdraw.Size = new System.Drawing.Size(249, 52);
+            this.btnWithdraw.TabIndex = 13;
+            this.btnWithdraw.Text = "Withdraw";
+            this.btnWithdraw.UseVisualStyleBackColor = true;
+            this.btnWithdraw.Click += new System.EventHandler(this.btnWithdraw_Click);
+            // 
+            // btnTotalBalances
+            // 
+            this.btnTotalBalances.Location = new System.Drawing.Point(854, 545);
+            this.btnTotalBalances.Name = "btnTotalBalances";
+            this.btnTotalBalances.Size = new System.Drawing.Size(249, 52);
+            this.btnTotalBalances.TabIndex = 14;
+            this.btnTotalBalances.Text = "Total Balances";
+            this.btnTotalBalances.UseVisualStyleBackColor = true;
+            this.btnTotalBalances.Click += new System.EventHandler(this.btnTotalBalances_Click);
+            // 
+            // lblTotalBalancesText
+            // 
+            this.lblTotalBalancesText.AutoSize = true;
+            this.lblTotalBalancesText.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTotalBalancesText.Location = new System.Drawing.Point(892, 376);
+            this.lblTotalBalancesText.Name = "lblTotalBalancesText";
+            this.lblTotalBalancesText.Size = new System.Drawing.Size(211, 32);
+            this.lblTotalBalancesText.TabIndex = 15;
+            this.lblTotalBalancesText.Text = "Total Balances:";
+            this.lblTotalBalancesText.Visible = false;
+            // 
+            // lblTotalBalances
+            // 
+            this.lblTotalBalances.AutoSize = true;
+            this.lblTotalBalances.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTotalBalances.Location = new System.Drawing.Point(1122, 376);
+            this.lblTotalBalances.Name = "lblTotalBalances";
+            this.lblTotalBalances.Size = new System.Drawing.Size(62, 32);
+            this.lblTotalBalances.TabIndex = 16;
+            this.lblTotalBalances.Text = "???";
+            this.lblTotalBalances.Visible = false;
             // 
             // frmListClients
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1481, 727);
+            this.Controls.Add(this.lblTotalBalances);
+            this.Controls.Add(this.lblTotalBalancesText);
+            this.Controls.Add(this.btnTotalBalances);
+            this.Controls.Add(this.btnWithdraw);
+            this.Controls.Add(this.btnDeposit);
             this.Controls.Add(this.btnFindUser);
             this.Controls.Add(this.btnUpdateUser);
             this.Controls.Add(this.btnDeleteUser);
@@ -230,6 +292,7 @@
             this.contextMenuStrip1.ResumeLayout(false);
             this.contextMenuStrip2.ResumeLayout(false);
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -252,6 +315,11 @@
         private System.Windows.Forms.ContextMenuStrip contextMenuStrip2;
         private System.Windows.Forms.ToolStripMenuItem editToolStripMenuItem1;
         private System.Windows.Forms.ToolStripMenuItem deleteToolStripMenuItem1;
+        private System.Windows.Forms.Button btnDeposit;
+        private System.Windows.Forms.Button btnWithdraw;
+        private System.Windows.Forms.Button btnTotalBalances;
+        private System.Windows.Forms.Label lblTotalBalancesText;
+        private System.Windows.Forms.Label lblTotalBalances;
     }
 }
 
