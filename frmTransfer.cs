@@ -1,4 +1,5 @@
-﻿using ClientBusinessLayer;
+﻿using Bank_Business_Layer;
+using ClientBusinessLayer;
 using PersonBusinessLayer;
 using System;
 using System.Collections.Generic;
@@ -15,13 +16,18 @@ namespace BankSystemWinForm
 {
     public partial class frmTransfer : Form
     {
-        public frmTransfer()
+        string _UserName;
+        public frmTransfer(string UserName = "")
         {
             InitializeComponent();
+
+            _UserName = UserName;
         }
 
         clsClient _Client1;
         clsClient _Client2;
+
+        clsTransferLog _TransferLog;
 
         private void btnFind_Click(object sender, EventArgs e)
         {
@@ -71,7 +77,7 @@ namespace BankSystemWinForm
 
             if (_Client1.AccountNumber == _Client2.AccountNumber)
             {
-                MessageBox.Show("Can't Tranfer From To Same Account", "failed to transfer", MessageBoxButtons.OK);
+                MessageBox.Show("Can't Transfer From To Same Account", "failed to transfer", MessageBoxButtons.OK);
                 lblFoundAccountNumber.Text = "";
                 lblFoundAccountNumber2.Text = "";
                 return;
@@ -84,6 +90,26 @@ namespace BankSystemWinForm
 
                     if (clsClient.Deposit(_Client2.AccountNumber, Convert.ToInt32(txtTransferAmount.Text)))
                     {
+                         _TransferLog = new clsTransferLog();
+
+                        _TransferLog.Date = DateTime.Now;
+                        _TransferLog.SourceAcc = _Client1.AccountNumber;
+                        _TransferLog.DestinationAcc = _Client2.AccountNumber;
+                        _TransferLog.Amount = txtTransferAmount.Text;
+                        _TransferLog.SourceBalance = _Client1.Balance;
+                        _TransferLog.DestinationBalance = _Client2.Balance;
+                        _TransferLog.UserName =  _UserName;
+
+                        if (_TransferLog.Save())
+                        {
+
+                            Console.WriteLine("Transfer Log Saved Successfully");
+                        }
+                        else
+                        {
+                            Console.WriteLine("Transfer Log failed to save");
+                        }
+
                         MessageBox.Show("Transfered Successfully","Transfered",MessageBoxButtons.OK);
 
                     }

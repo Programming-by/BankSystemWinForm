@@ -1,11 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using UserBusinessLayer;
 
@@ -50,7 +43,7 @@ namespace BankSystemWinForm
             {
                 if (txtUserName.Text == _User.UserName && txtPinCode.Text == _User.PinCode)
                 {
-                    frmListClients frm = new frmListClients();
+                    frmListClients frm = new frmListClients(_User.UserName);
 
                     frm.ShowDialog();
                 }

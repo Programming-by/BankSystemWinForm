@@ -52,6 +52,7 @@
             this.lblTotalBalancesText = new System.Windows.Forms.Label();
             this.lblTotalBalances = new System.Windows.Forms.Label();
             this.btnTransfer = new System.Windows.Forms.Button();
+            this.btnTransferLogs = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvShow)).BeginInit();
             this.contextMenuStrip1.SuspendLayout();
             this.contextMenuStrip2.SuspendLayout();
@@ -276,11 +277,22 @@
             this.btnTransfer.UseVisualStyleBackColor = true;
             this.btnTransfer.Click += new System.EventHandler(this.btnTransfer_Click);
             // 
+            // btnTransferLogs
+            // 
+            this.btnTransferLogs.Location = new System.Drawing.Point(314, 635);
+            this.btnTransferLogs.Name = "btnTransferLogs";
+            this.btnTransferLogs.Size = new System.Drawing.Size(249, 52);
+            this.btnTransferLogs.TabIndex = 18;
+            this.btnTransferLogs.Text = "Transfer Logs";
+            this.btnTransferLogs.UseVisualStyleBackColor = true;
+            this.btnTransferLogs.Click += new System.EventHandler(this.btnTransferLogs_Click);
+            // 
             // frmListClients
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1481, 727);
+            this.Controls.Add(this.btnTransferLogs);
             this.Controls.Add(this.btnTransfer);
             this.Controls.Add(this.lblTotalBalances);
             this.Controls.Add(this.lblTotalBalancesText);
@@ -333,6 +345,7 @@
         private System.Windows.Forms.Label lblTotalBalancesText;
         private System.Windows.Forms.Label lblTotalBalances;
         private System.Windows.Forms.Button btnTransfer;
+        private System.Windows.Forms.Button btnTransferLogs;
     }
 }
 

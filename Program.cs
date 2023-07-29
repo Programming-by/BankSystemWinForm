@@ -16,7 +16,7 @@ namespace BankSystemWinForm
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new frmListClients());
+            Application.Run(new frmLogin());
         }
     }
 }

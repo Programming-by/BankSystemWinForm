@@ -1,4 +1,5 @@
-﻿using ClientBusinessLayer;
+﻿using Bank_Business_Layer;
+using ClientBusinessLayer;
 using PersonBusinessLayer;
 using System;
 using System.Windows.Forms;
@@ -9,16 +10,22 @@ namespace BankSystemWinForm
     public partial class frmListClients : Form
     {
         /*
+         Login Registers Log
          Permissions
          Currency Exchange
          
          */
 
+        string _UserName;
+
         float TotalBalances = 0;
 
-        public frmListClients()
+        public frmListClients(string UserName = "")
         {
             InitializeComponent();
+
+
+            _UserName = UserName;
         }
 
 
@@ -213,9 +220,17 @@ namespace BankSystemWinForm
 
         private void btnTransfer_Click(object sender, EventArgs e)
         {
-            frmTransfer frm = new frmTransfer();
+            frmTransfer frm = new frmTransfer(_UserName);
 
             frm.ShowDialog();
+
+        }
+
+        private void btnTransferLogs_Click(object sender, EventArgs e)
+        {
+          dgvShow.DataSource = clsTransferLog.GetTransferLogs();
+
+          dgvShow.ContextMenuStrip = null;
 
         }
     }
