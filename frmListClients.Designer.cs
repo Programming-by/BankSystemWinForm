@@ -53,6 +53,7 @@
             this.lblTotalBalances = new System.Windows.Forms.Label();
             this.btnTransfer = new System.Windows.Forms.Button();
             this.btnTransferLogs = new System.Windows.Forms.Button();
+            this.btnLoginRegisters = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvShow)).BeginInit();
             this.contextMenuStrip1.SuspendLayout();
             this.contextMenuStrip2.SuspendLayout();
@@ -62,11 +63,11 @@
             // 
             this.dgvShow.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvShow.ContextMenuStrip = this.contextMenuStrip1;
-            this.dgvShow.Location = new System.Drawing.Point(314, 26);
+            this.dgvShow.Location = new System.Drawing.Point(301, 56);
             this.dgvShow.Name = "dgvShow";
             this.dgvShow.RowHeadersWidth = 51;
             this.dgvShow.RowTemplate.Height = 24;
-            this.dgvShow.Size = new System.Drawing.Size(1085, 478);
+            this.dgvShow.Size = new System.Drawing.Size(1085, 458);
             this.dgvShow.TabIndex = 0;
             // 
             // contextMenuStrip1
@@ -249,7 +250,7 @@
             // 
             this.lblTotalBalancesText.AutoSize = true;
             this.lblTotalBalancesText.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTotalBalancesText.Location = new System.Drawing.Point(892, 376);
+            this.lblTotalBalancesText.Location = new System.Drawing.Point(892, 416);
             this.lblTotalBalancesText.Name = "lblTotalBalancesText";
             this.lblTotalBalancesText.Size = new System.Drawing.Size(211, 32);
             this.lblTotalBalancesText.TabIndex = 15;
@@ -260,7 +261,7 @@
             // 
             this.lblTotalBalances.AutoSize = true;
             this.lblTotalBalances.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTotalBalances.Location = new System.Drawing.Point(1122, 376);
+            this.lblTotalBalances.Location = new System.Drawing.Point(1139, 416);
             this.lblTotalBalances.Name = "lblTotalBalances";
             this.lblTotalBalances.Size = new System.Drawing.Size(62, 32);
             this.lblTotalBalances.TabIndex = 16;
@@ -287,11 +288,22 @@
             this.btnTransferLogs.UseVisualStyleBackColor = true;
             this.btnTransferLogs.Click += new System.EventHandler(this.btnTransferLogs_Click);
             // 
+            // btnLoginRegisters
+            // 
+            this.btnLoginRegisters.Location = new System.Drawing.Point(586, 635);
+            this.btnLoginRegisters.Name = "btnLoginRegisters";
+            this.btnLoginRegisters.Size = new System.Drawing.Size(249, 52);
+            this.btnLoginRegisters.TabIndex = 19;
+            this.btnLoginRegisters.Text = "Login Registers";
+            this.btnLoginRegisters.UseVisualStyleBackColor = true;
+            this.btnLoginRegisters.Click += new System.EventHandler(this.btnLoginRegisters_Click);
+            // 
             // frmListClients
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1481, 727);
+            this.ClientSize = new System.Drawing.Size(1481, 762);
+            this.Controls.Add(this.btnLoginRegisters);
             this.Controls.Add(this.btnTransferLogs);
             this.Controls.Add(this.btnTransfer);
             this.Controls.Add(this.lblTotalBalances);
@@ -346,6 +358,7 @@
         private System.Windows.Forms.Label lblTotalBalances;
         private System.Windows.Forms.Button btnTransfer;
         private System.Windows.Forms.Button btnTransferLogs;
+        private System.Windows.Forms.Button btnLoginRegisters;
     }
 }
 

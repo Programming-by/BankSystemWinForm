@@ -10,10 +10,7 @@ namespace BankSystemWinForm
     public partial class frmListClients : Form
     {
         /*
-         Login Registers Log
-         Permissions
-         Currency Exchange
-         
+         Permissions 
          */
 
         string _UserName;
@@ -231,6 +228,15 @@ namespace BankSystemWinForm
           dgvShow.DataSource = clsTransferLog.GetTransferLogs();
 
           dgvShow.ContextMenuStrip = null;
+
+        }
+
+        private void btnLoginRegisters_Click(object sender, EventArgs e)
+        {
+
+            dgvShow.DataSource = clsLoginRegister.GetLoginRegisters();
+
+            dgvShow.ContextMenuStrip = null;
 
         }
     }

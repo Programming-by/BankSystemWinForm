@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Bank_Business_Layer;
+using System;
 using System.Windows.Forms;
 using UserBusinessLayer;
 
@@ -7,7 +8,9 @@ namespace BankSystemWinForm
     public partial class frmLogin : Form
     {
         clsUser _User;
+        clsUser _UserFind;
         int Counter = 3;
+        clsLoginRegister _LoginRegister;
         public frmLogin()
         {
             InitializeComponent();
@@ -43,9 +46,29 @@ namespace BankSystemWinForm
             {
                 if (txtUserName.Text == _User.UserName && txtPinCode.Text == _User.PinCode)
                 {
+                    _LoginRegister = new clsLoginRegister();
+
+                    _UserFind = clsUser.Find(_User.UserName);
+                
+                    _LoginRegister.Date = DateTime.Now;
+                    _LoginRegister.UserName = _User.UserName;
+                    _LoginRegister.Password = _User.PinCode;
+                    _LoginRegister.Permissions = _UserFind.Permissions;
+
+
+                    if (_LoginRegister.Save())
+                    {
+                        Console.WriteLine("Saved Record");
+                    }
+
+
+
                     frmListClients frm = new frmListClients(_User.UserName);
 
                     frm.ShowDialog();
+
+                  
+
                 }
             }
         }
