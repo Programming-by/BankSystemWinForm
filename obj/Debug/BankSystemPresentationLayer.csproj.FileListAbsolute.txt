@@ -22,3 +22,4 @@ C:\Users\User\Source\Repos\BankSystemWinForm\obj\Debug\BankSystemWinForm.frmFind
 C:\Users\User\Source\Repos\BankSystemWinForm\obj\Debug\BankSystemWinForm.frmUpdateUser.resources
 C:\Users\User\Source\Repos\BankSystemWinForm\obj\Debug\BankSystemWinForm.frmLogin.resources
 C:\Users\User\Source\Repos\BankSystemWinForm\obj\Debug\BankSystemWinForm.frmDepositAndWithdraw.resources
+C:\Users\User\Source\Repos\BankSystemWinForm\obj\Debug\BankSystemWinForm.frmTransfer.resources

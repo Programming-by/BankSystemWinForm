@@ -24,7 +24,7 @@ namespace BankSystemWinForm
 
         private void _RefreshClientsList()
         {
-            dgvAllClientsAndAllUsers.DataSource = clsClient.GetAllClients();
+            dgvShow.DataSource = clsClient.GetAllClients();
         }
 
         private void addClient_Click(object sender, EventArgs e)
@@ -38,7 +38,7 @@ namespace BankSystemWinForm
 
         private void editToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            frmAddEditClient frm = new frmAddEditClient((int)dgvAllClientsAndAllUsers.CurrentRow.Cells[0].Value);
+            frmAddEditClient frm = new frmAddEditClient((int)dgvShow.CurrentRow.Cells[0].Value);
 
             frm.ShowDialog();
 
@@ -48,11 +48,11 @@ namespace BankSystemWinForm
 
         private void deleteToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            if(MessageBox.Show("Are you sure you want to delete Client [" + dgvAllClientsAndAllUsers.CurrentRow.Cells[0].Value + "]" , "Confirm Delete" , MessageBoxButtons.OKCancel) == DialogResult.OK)
+            if(MessageBox.Show("Are you sure you want to delete Client [" + dgvShow.CurrentRow.Cells[0].Value + "]" , "Confirm Delete" , MessageBoxButtons.OKCancel) == DialogResult.OK)
             {
-                if (clsClient.DeleteClient((int)dgvAllClientsAndAllUsers.CurrentRow.Cells[0].Value))
+                if (clsClient.DeleteClient((int)dgvShow.CurrentRow.Cells[0].Value))
                 {
-                    if(clsPerson.DeletePerson((int)dgvAllClientsAndAllUsers.CurrentRow.Cells[0].Value))
+                    if(clsPerson.DeletePerson((int)dgvShow.CurrentRow.Cells[0].Value))
                     {
                         MessageBox.Show("Client Deleted Successfully.");
                         _RefreshClientsList();
@@ -106,14 +106,14 @@ namespace BankSystemWinForm
 
         private void _RefreshUsersList()
         {
-            dgvAllClientsAndAllUsers.DataSource = clsUser.GetAllUsers();
+            dgvShow.DataSource = clsUser.GetAllUsers();
         }
 
         private void btnListUsers_Click(object sender, EventArgs e)
         {
             _RefreshUsersList();
 
-            dgvAllClientsAndAllUsers.ContextMenuStrip = contextMenuStrip2;
+            dgvShow.ContextMenuStrip = contextMenuStrip2;
 
         }
 
@@ -128,11 +128,11 @@ namespace BankSystemWinForm
 
         private void deleteToolStripMenuItem1_Click(object sender, EventArgs e)
         {
-            if (MessageBox.Show("Are you sure you want to delete User [" + dgvAllClientsAndAllUsers.CurrentRow.Cells[0].Value + "]", "Confirm Delete", MessageBoxButtons.OKCancel) == DialogResult.OK)
+            if (MessageBox.Show("Are you sure you want to delete User [" + dgvShow.CurrentRow.Cells[0].Value + "]", "Confirm Delete", MessageBoxButtons.OKCancel) == DialogResult.OK)
             {
-                if (clsUser.DeleteUser((int)dgvAllClientsAndAllUsers.CurrentRow.Cells[0].Value))
+                if (clsUser.DeleteUser((int)dgvShow.CurrentRow.Cells[0].Value))
                 {
-                    if (clsPerson.DeletePerson((int)dgvAllClientsAndAllUsers.CurrentRow.Cells[0].Value))
+                    if (clsPerson.DeletePerson((int)dgvShow.CurrentRow.Cells[0].Value))
                     {
                         MessageBox.Show("User Deleted Successfully.");
                         _RefreshUsersList();
@@ -144,7 +144,7 @@ namespace BankSystemWinForm
 
         private void editToolStripMenuItem1_Click(object sender, EventArgs e)
         {
-            frmAddEditUser frm = new frmAddEditUser((int)dgvAllClientsAndAllUsers.CurrentRow.Cells[0].Value);
+            frmAddEditUser frm = new frmAddEditUser((int)dgvShow.CurrentRow.Cells[0].Value);
 
             frm.ShowDialog();
 
@@ -196,9 +196,9 @@ namespace BankSystemWinForm
         private void btnTotalBalances_Click(object sender, EventArgs e)
         {
 
-            dgvAllClientsAndAllUsers.DataSource = clsClient.GetTotalBalances();
+            dgvShow.DataSource = clsClient.GetTotalBalances();
 
-            dgvAllClientsAndAllUsers.ContextMenuStrip = null;
+            dgvShow.ContextMenuStrip = null;
 
             TotalBalances = clsClient.Sum();
 
@@ -208,6 +208,14 @@ namespace BankSystemWinForm
             lblTotalBalances.Visible = true;
 
 
+
+        }
+
+        private void btnTransfer_Click(object sender, EventArgs e)
+        {
+            frmTransfer frm = new frmTransfer();
+
+            frm.ShowDialog();
 
         }
     }

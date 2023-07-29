@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            this.dgvAllClientsAndAllUsers = new System.Windows.Forms.DataGridView();
+            this.dgvShow = new System.Windows.Forms.DataGridView();
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.editToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.deleteToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -51,21 +51,22 @@
             this.btnTotalBalances = new System.Windows.Forms.Button();
             this.lblTotalBalancesText = new System.Windows.Forms.Label();
             this.lblTotalBalances = new System.Windows.Forms.Label();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvAllClientsAndAllUsers)).BeginInit();
+            this.btnTransfer = new System.Windows.Forms.Button();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvShow)).BeginInit();
             this.contextMenuStrip1.SuspendLayout();
             this.contextMenuStrip2.SuspendLayout();
             this.SuspendLayout();
             // 
-            // dgvAllClientsAndAllUsers
+            // dgvShow
             // 
-            this.dgvAllClientsAndAllUsers.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvAllClientsAndAllUsers.ContextMenuStrip = this.contextMenuStrip1;
-            this.dgvAllClientsAndAllUsers.Location = new System.Drawing.Point(314, 26);
-            this.dgvAllClientsAndAllUsers.Name = "dgvAllClientsAndAllUsers";
-            this.dgvAllClientsAndAllUsers.RowHeadersWidth = 51;
-            this.dgvAllClientsAndAllUsers.RowTemplate.Height = 24;
-            this.dgvAllClientsAndAllUsers.Size = new System.Drawing.Size(1085, 478);
-            this.dgvAllClientsAndAllUsers.TabIndex = 0;
+            this.dgvShow.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvShow.ContextMenuStrip = this.contextMenuStrip1;
+            this.dgvShow.Location = new System.Drawing.Point(314, 26);
+            this.dgvShow.Name = "dgvShow";
+            this.dgvShow.RowHeadersWidth = 51;
+            this.dgvShow.RowTemplate.Height = 24;
+            this.dgvShow.Size = new System.Drawing.Size(1085, 478);
+            this.dgvShow.TabIndex = 0;
             // 
             // contextMenuStrip1
             // 
@@ -265,11 +266,22 @@
             this.lblTotalBalances.Text = "???";
             this.lblTotalBalances.Visible = false;
             // 
+            // btnTransfer
+            // 
+            this.btnTransfer.Location = new System.Drawing.Point(1128, 545);
+            this.btnTransfer.Name = "btnTransfer";
+            this.btnTransfer.Size = new System.Drawing.Size(249, 52);
+            this.btnTransfer.TabIndex = 17;
+            this.btnTransfer.Text = "Transfer";
+            this.btnTransfer.UseVisualStyleBackColor = true;
+            this.btnTransfer.Click += new System.EventHandler(this.btnTransfer_Click);
+            // 
             // frmListClients
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1481, 727);
+            this.Controls.Add(this.btnTransfer);
             this.Controls.Add(this.lblTotalBalances);
             this.Controls.Add(this.lblTotalBalancesText);
             this.Controls.Add(this.btnTotalBalances);
@@ -285,10 +297,10 @@
             this.Controls.Add(this.deleteClient);
             this.Controls.Add(this.addClient);
             this.Controls.Add(this.listClients);
-            this.Controls.Add(this.dgvAllClientsAndAllUsers);
+            this.Controls.Add(this.dgvShow);
             this.Name = "frmListClients";
             this.Text = "Form1";
-            ((System.ComponentModel.ISupportInitialize)(this.dgvAllClientsAndAllUsers)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvShow)).EndInit();
             this.contextMenuStrip1.ResumeLayout(false);
             this.contextMenuStrip2.ResumeLayout(false);
             this.ResumeLayout(false);
@@ -298,7 +310,7 @@
 
         #endregion
 
-        private System.Windows.Forms.DataGridView dgvAllClientsAndAllUsers;
+        private System.Windows.Forms.DataGridView dgvShow;
         private System.Windows.Forms.Button listClients;
         private System.Windows.Forms.Button addClient;
         private System.Windows.Forms.Button deleteClient;
@@ -320,6 +332,7 @@
         private System.Windows.Forms.Button btnTotalBalances;
         private System.Windows.Forms.Label lblTotalBalancesText;
         private System.Windows.Forms.Label lblTotalBalances;
+        private System.Windows.Forms.Button btnTransfer;
     }
 }
 
