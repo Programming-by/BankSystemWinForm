@@ -2,12 +2,12 @@
 using PersonBusinessLayer;
 using System;
 using System.Windows.Forms;
+using static BankSystemWinForm.frmAddEditUser;
 
 namespace BankSystemWinForm
 {
     public partial class frmAddEditClient : Form
     {
-        //check when user add existed account number
         public enum enMode {AddNew = 0, Update = 1};
 
         int _ClientID;
@@ -15,8 +15,10 @@ namespace BankSystemWinForm
 
         clsClient _Client;
 
+        clsClient _FindClient;
+
         clsPerson _Person;
-        public frmAddEditClient(int ClientID)
+        public frmAddEditClient(int ClientID )
         {
             InitializeComponent();
 
@@ -39,9 +41,10 @@ namespace BankSystemWinForm
 
             if (_Mode == enMode.AddNew)
             {
-                lblMode.Text = "Add New Client";
+         
+               lblMode.Text = "Add New Client";
                 _Client = new clsClient();
-                _Person = new clsPerson(); 
+                _Person = new clsPerson();
                 return;
             }
 
@@ -76,20 +79,37 @@ namespace BankSystemWinForm
             _Person.PinCode = txtPinCode.Text;
             _Client.Balance = txtBalance.Text;
 
-            if (_Person.Save())
+            _FindClient = clsClient.Find(txtAccountNumber.Text);
+
+            if (_FindClient == null)
             {
-                _Client.PersonID = _Person.PersonID;
-
-                if (_Client.Save())
+                if (_Person.Save())
                 {
+                    _Client.PersonID = _Person.PersonID;
 
-                MessageBox.Show("Client Saved Successfully");
+                    if (_Client.Save())
+                    {
+
+                        MessageBox.Show("Client Saved Successfully");
+                        return;
+
+                    }
+                    else
+                    {
+                        MessageBox.Show("Client failed to save");
+                    }
                 }
-                else
-                {
-                    MessageBox.Show("Client failed to save");
-                }
+
             }
+
+            if (_Client.AccountNumber == _FindClient.AccountNumber)
+            {
+                MessageBox.Show("Please Enter a Unique Account Number", "Account Number Exists", MessageBoxButtons.OK);
+
+                return;
+            }
+
+
 
 
             _Mode = enMode.Update;
@@ -108,8 +128,8 @@ namespace BankSystemWinForm
         {
             _LoadData();
         }
-   
-    
-    
+
+      
+     
     }
 }

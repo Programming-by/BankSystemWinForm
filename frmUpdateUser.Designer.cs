@@ -39,10 +39,20 @@
             this.txtPhone = new System.Windows.Forms.TextBox();
             this.txtEmail = new System.Windows.Forms.TextBox();
             this.txtPassword = new System.Windows.Forms.TextBox();
-            this.txtPermissions = new System.Windows.Forms.TextBox();
             this.btnFind = new System.Windows.Forms.Button();
             this.btnSave = new System.Windows.Forms.Button();
             this.btnClose = new System.Windows.Forms.Button();
+            this.panelPermissions = new System.Windows.Forms.Panel();
+            this.chkLoginRegister = new System.Windows.Forms.CheckBox();
+            this.chkManageUsers = new System.Windows.Forms.CheckBox();
+            this.chkTransactions = new System.Windows.Forms.CheckBox();
+            this.chkAddNewClient = new System.Windows.Forms.CheckBox();
+            this.chkFindClient = new System.Windows.Forms.CheckBox();
+            this.chkUpdateClient = new System.Windows.Forms.CheckBox();
+            this.chkDeleteClient = new System.Windows.Forms.CheckBox();
+            this.chkShowAllClients = new System.Windows.Forms.CheckBox();
+            this.chkAll = new System.Windows.Forms.CheckBox();
+            this.panelPermissions.SuspendLayout();
             this.SuspendLayout();
             // 
             // label1
@@ -149,15 +159,6 @@
             this.txtPassword.Size = new System.Drawing.Size(334, 38);
             this.txtPassword.TabIndex = 11;
             // 
-            // txtPermissions
-            // 
-            this.txtPermissions.Enabled = false;
-            this.txtPermissions.Location = new System.Drawing.Point(254, 400);
-            this.txtPermissions.Multiline = true;
-            this.txtPermissions.Name = "txtPermissions";
-            this.txtPermissions.Size = new System.Drawing.Size(334, 38);
-            this.txtPermissions.TabIndex = 12;
-            // 
             // btnFind
             // 
             this.btnFind.Location = new System.Drawing.Point(633, 52);
@@ -170,7 +171,7 @@
             // 
             // btnSave
             // 
-            this.btnSave.Location = new System.Drawing.Point(241, 472);
+            this.btnSave.Location = new System.Drawing.Point(135, 678);
             this.btnSave.Name = "btnSave";
             this.btnSave.Size = new System.Drawing.Size(96, 53);
             this.btnSave.TabIndex = 14;
@@ -180,7 +181,7 @@
             // 
             // btnClose
             // 
-            this.btnClose.Location = new System.Drawing.Point(492, 472);
+            this.btnClose.Location = new System.Drawing.Point(535, 678);
             this.btnClose.Name = "btnClose";
             this.btnClose.Size = new System.Drawing.Size(96, 53);
             this.btnClose.TabIndex = 15;
@@ -188,15 +189,121 @@
             this.btnClose.UseVisualStyleBackColor = true;
             this.btnClose.Click += new System.EventHandler(this.btnClose_Click);
             // 
+            // panelPermissions
+            // 
+            this.panelPermissions.Controls.Add(this.chkLoginRegister);
+            this.panelPermissions.Controls.Add(this.chkManageUsers);
+            this.panelPermissions.Controls.Add(this.chkTransactions);
+            this.panelPermissions.Controls.Add(this.chkAddNewClient);
+            this.panelPermissions.Controls.Add(this.chkFindClient);
+            this.panelPermissions.Controls.Add(this.chkUpdateClient);
+            this.panelPermissions.Controls.Add(this.chkDeleteClient);
+            this.panelPermissions.Controls.Add(this.chkShowAllClients);
+            this.panelPermissions.Controls.Add(this.chkAll);
+            this.panelPermissions.Location = new System.Drawing.Point(254, 409);
+            this.panelPermissions.Name = "panelPermissions";
+            this.panelPermissions.Size = new System.Drawing.Size(200, 265);
+            this.panelPermissions.TabIndex = 24;
+            // 
+            // chkLoginRegister
+            // 
+            this.chkLoginRegister.AutoSize = true;
+            this.chkLoginRegister.Location = new System.Drawing.Point(3, 227);
+            this.chkLoginRegister.Name = "chkLoginRegister";
+            this.chkLoginRegister.Size = new System.Drawing.Size(116, 20);
+            this.chkLoginRegister.TabIndex = 30;
+            this.chkLoginRegister.Text = "Login Register";
+            this.chkLoginRegister.UseVisualStyleBackColor = true;
+            // 
+            // chkManageUsers
+            // 
+            this.chkManageUsers.AutoSize = true;
+            this.chkManageUsers.Location = new System.Drawing.Point(3, 173);
+            this.chkManageUsers.Name = "chkManageUsers";
+            this.chkManageUsers.Size = new System.Drawing.Size(118, 20);
+            this.chkManageUsers.TabIndex = 29;
+            this.chkManageUsers.Text = "Manage Users";
+            this.chkManageUsers.UseVisualStyleBackColor = true;
+            // 
+            // chkTransactions
+            // 
+            this.chkTransactions.AutoSize = true;
+            this.chkTransactions.Location = new System.Drawing.Point(3, 200);
+            this.chkTransactions.Name = "chkTransactions";
+            this.chkTransactions.Size = new System.Drawing.Size(107, 20);
+            this.chkTransactions.TabIndex = 28;
+            this.chkTransactions.Text = "Transactions";
+            this.chkTransactions.UseVisualStyleBackColor = true;
+            // 
+            // chkAddNewClient
+            // 
+            this.chkAddNewClient.AutoSize = true;
+            this.chkAddNewClient.Location = new System.Drawing.Point(3, 65);
+            this.chkAddNewClient.Name = "chkAddNewClient";
+            this.chkAddNewClient.Size = new System.Drawing.Size(120, 20);
+            this.chkAddNewClient.TabIndex = 27;
+            this.chkAddNewClient.Text = "Add New Client";
+            this.chkAddNewClient.UseVisualStyleBackColor = true;
+            // 
+            // chkFindClient
+            // 
+            this.chkFindClient.AutoSize = true;
+            this.chkFindClient.Location = new System.Drawing.Point(3, 146);
+            this.chkFindClient.Name = "chkFindClient";
+            this.chkFindClient.Size = new System.Drawing.Size(91, 20);
+            this.chkFindClient.TabIndex = 26;
+            this.chkFindClient.Text = "Find Client";
+            this.chkFindClient.UseVisualStyleBackColor = true;
+            // 
+            // chkUpdateClient
+            // 
+            this.chkUpdateClient.AutoSize = true;
+            this.chkUpdateClient.Location = new System.Drawing.Point(3, 119);
+            this.chkUpdateClient.Name = "chkUpdateClient";
+            this.chkUpdateClient.Size = new System.Drawing.Size(110, 20);
+            this.chkUpdateClient.TabIndex = 25;
+            this.chkUpdateClient.Text = "Update Client";
+            this.chkUpdateClient.UseVisualStyleBackColor = true;
+            // 
+            // chkDeleteClient
+            // 
+            this.chkDeleteClient.AutoSize = true;
+            this.chkDeleteClient.Location = new System.Drawing.Point(3, 92);
+            this.chkDeleteClient.Name = "chkDeleteClient";
+            this.chkDeleteClient.Size = new System.Drawing.Size(105, 20);
+            this.chkDeleteClient.TabIndex = 24;
+            this.chkDeleteClient.Text = "Delete Client";
+            this.chkDeleteClient.UseVisualStyleBackColor = true;
+            // 
+            // chkShowAllClients
+            // 
+            this.chkShowAllClients.AutoSize = true;
+            this.chkShowAllClients.Location = new System.Drawing.Point(3, 38);
+            this.chkShowAllClients.Name = "chkShowAllClients";
+            this.chkShowAllClients.Size = new System.Drawing.Size(123, 20);
+            this.chkShowAllClients.TabIndex = 23;
+            this.chkShowAllClients.Text = "Show All Clients";
+            this.chkShowAllClients.UseVisualStyleBackColor = true;
+            // 
+            // chkAll
+            // 
+            this.chkAll.AutoSize = true;
+            this.chkAll.Location = new System.Drawing.Point(3, 11);
+            this.chkAll.Name = "chkAll";
+            this.chkAll.Size = new System.Drawing.Size(44, 20);
+            this.chkAll.TabIndex = 22;
+            this.chkAll.Text = "All";
+            this.chkAll.UseVisualStyleBackColor = true;
+            // 
             // frmUpdateUser
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 537);
+            this.ClientSize = new System.Drawing.Size(934, 775);
+            this.Controls.Add(this.panelPermissions);
             this.Controls.Add(this.btnClose);
             this.Controls.Add(this.btnSave);
             this.Controls.Add(this.btnFind);
-            this.Controls.Add(this.txtPermissions);
             this.Controls.Add(this.txtPassword);
             this.Controls.Add(this.txtEmail);
             this.Controls.Add(this.txtPhone);
@@ -210,6 +317,8 @@
             this.Controls.Add(this.label1);
             this.Name = "frmUpdateUser";
             this.Text = "frmUpdateUser";
+            this.panelPermissions.ResumeLayout(false);
+            this.panelPermissions.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -228,9 +337,18 @@
         private System.Windows.Forms.TextBox txtPhone;
         private System.Windows.Forms.TextBox txtEmail;
         private System.Windows.Forms.TextBox txtPassword;
-        private System.Windows.Forms.TextBox txtPermissions;
         private System.Windows.Forms.Button btnFind;
         private System.Windows.Forms.Button btnSave;
         private System.Windows.Forms.Button btnClose;
+        private System.Windows.Forms.Panel panelPermissions;
+        private System.Windows.Forms.CheckBox chkLoginRegister;
+        private System.Windows.Forms.CheckBox chkManageUsers;
+        private System.Windows.Forms.CheckBox chkTransactions;
+        private System.Windows.Forms.CheckBox chkAddNewClient;
+        private System.Windows.Forms.CheckBox chkFindClient;
+        private System.Windows.Forms.CheckBox chkUpdateClient;
+        private System.Windows.Forms.CheckBox chkDeleteClient;
+        private System.Windows.Forms.CheckBox chkShowAllClients;
+        private System.Windows.Forms.CheckBox chkAll;
     }
 }

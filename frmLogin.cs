@@ -62,8 +62,7 @@ namespace BankSystemWinForm
                     }
 
 
-
-                    frmListClients frm = new frmListClients(_User.UserName);
+                    frmListClients frm = new frmListClients(_UserFind);
 
                     frm.ShowDialog();
 

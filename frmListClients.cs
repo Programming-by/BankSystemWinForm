@@ -4,25 +4,32 @@ using PersonBusinessLayer;
 using System;
 using System.Windows.Forms;
 using UserBusinessLayer;
+using static BankSystemWinForm.frmAddEditUser;
 
 namespace BankSystemWinForm
 {
     public partial class frmListClients : Form
     {
         /*
-         Permissions 
+         Group buttons under one Button
+         UI
          */
+
 
         string _UserName;
 
         float TotalBalances = 0;
 
-        public frmListClients(string UserName = "")
+        clsUser _User;
+        public frmListClients(clsUser User)
         {
             InitializeComponent();
 
+            this._User = User;   
 
-            _UserName = UserName;
+            _UserName = User.UserName;
+
+            lblUserName.Text = _UserName;
         }
 
 
@@ -33,15 +40,33 @@ namespace BankSystemWinForm
 
         private void addClient_Click(object sender, EventArgs e)
         {
+            if (!CheckAccessPermission(clsUser.enPermissions.pAddNewClient))
+            {
+                MessageBox.Show( "you are not allowed to enter this form because you don't have permission", "Access Denied", MessageBoxButtons.OK);
+
+                return;
+            }
+
+
             frmAddEditClient frm = new frmAddEditClient(-1);
 
             frm.ShowDialog();
 
             _RefreshClientsList();
+          
+
         }
 
         private void editToolStripMenuItem_Click(object sender, EventArgs e)
         {
+
+            if (!CheckAccessPermission(clsUser.enPermissions.pUpdateClient))
+            {
+                MessageBox.Show("you are not allowed to enter this form because you don't have permission", "Access Denied", MessageBoxButtons.OK);
+
+                return;
+            }
+
             frmAddEditClient frm = new frmAddEditClient((int)dgvShow.CurrentRow.Cells[0].Value);
 
             frm.ShowDialog();
@@ -52,7 +77,16 @@ namespace BankSystemWinForm
 
         private void deleteToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            if(MessageBox.Show("Are you sure you want to delete Client [" + dgvShow.CurrentRow.Cells[0].Value + "]" , "Confirm Delete" , MessageBoxButtons.OKCancel) == DialogResult.OK)
+
+            if (!CheckAccessPermission(clsUser.enPermissions.pDeleteClient))
+            {
+                MessageBox.Show("you are not allowed to enter this form because you don't have permission", "Access Denied", MessageBoxButtons.OK);
+
+                return;
+            }
+
+
+            if (MessageBox.Show("Are you sure you want to delete Client [" + dgvShow.CurrentRow.Cells[0].Value + "]" , "Confirm Delete" , MessageBoxButtons.OKCancel) == DialogResult.OK)
             {
                 if (clsClient.DeleteClient((int)dgvShow.CurrentRow.Cells[0].Value))
                 {
@@ -68,6 +102,13 @@ namespace BankSystemWinForm
         private void findClient_Click(object sender, EventArgs e)
         {
 
+            if (!CheckAccessPermission(clsUser.enPermissions.pFindClient))
+            {
+                MessageBox.Show("you are not allowed to enter this form because you don't have permission", "Access Denied", MessageBoxButtons.OK);
+
+                return;
+            }
+
             frmFindClient frm = new frmFindClient();
 
             frm.ShowDialog();
@@ -81,11 +122,26 @@ namespace BankSystemWinForm
 
         private void listClients_Click(object sender, EventArgs e)
         {
+            if (!CheckAccessPermission(clsUser.enPermissions.pShowAllClients))
+            {
+                MessageBox.Show("you are not allowed to enter this form because you don't have permission", "Access Denied", MessageBoxButtons.OK);
+
+                return;
+            }
+
             _RefreshClientsList();
         }
 
         private void deleteClient_Click(object sender, EventArgs e)
         {
+
+            if (!CheckAccessPermission(clsUser.enPermissions.pDeleteClient))
+            {
+                MessageBox.Show("you are not allowed to enter this form because you don't have permission", "Access Denied", MessageBoxButtons.OK);
+
+                return;
+            }
+
             frmFindClient frm = new frmFindClient(true);
 
             frm.ShowDialog();
@@ -98,6 +154,13 @@ namespace BankSystemWinForm
 
         private void updateClient_Click(object sender, EventArgs e)
         {
+
+            if (!CheckAccessPermission(clsUser.enPermissions.pUpdateClient))
+            {
+                MessageBox.Show("you are not allowed to enter this form because you don't have permission", "Access Denied", MessageBoxButtons.OK);
+
+                return;
+            }
 
             frmUpdateClient frm = new frmUpdateClient();
 
@@ -115,6 +178,13 @@ namespace BankSystemWinForm
 
         private void btnListUsers_Click(object sender, EventArgs e)
         {
+            if (!CheckAccessPermission(clsUser.enPermissions.pManageUsers))
+            {
+                MessageBox.Show("you are not allowed to enter this form because you don't have permission", "Access Denied", MessageBoxButtons.OK);
+
+                return;
+            }
+
             _RefreshUsersList();
 
             dgvShow.ContextMenuStrip = contextMenuStrip2;
@@ -123,6 +193,13 @@ namespace BankSystemWinForm
 
         private void btnAddNewUser_Click(object sender, EventArgs e)
         {
+            if (!CheckAccessPermission(clsUser.enPermissions.pManageUsers))
+            {
+                MessageBox.Show("you are not allowed to enter this form because you don't have permission", "Access Denied", MessageBoxButtons.OK);
+
+                return;
+            }
+
             frmAddEditUser frm = new frmAddEditUser(-1);
 
             frm.ShowDialog();
@@ -132,6 +209,15 @@ namespace BankSystemWinForm
 
         private void deleteToolStripMenuItem1_Click(object sender, EventArgs e)
         {
+
+            if (!CheckAccessPermission(clsUser.enPermissions.pManageUsers))
+            {
+                MessageBox.Show("you are not allowed to enter this form because you don't have permission", "Access Denied", MessageBoxButtons.OK);
+
+                return;
+            }
+
+
             if (MessageBox.Show("Are you sure you want to delete User [" + dgvShow.CurrentRow.Cells[0].Value + "]", "Confirm Delete", MessageBoxButtons.OKCancel) == DialogResult.OK)
             {
                 if (clsUser.DeleteUser((int)dgvShow.CurrentRow.Cells[0].Value))
@@ -148,6 +234,15 @@ namespace BankSystemWinForm
 
         private void editToolStripMenuItem1_Click(object sender, EventArgs e)
         {
+
+            if (!CheckAccessPermission(clsUser.enPermissions.pManageUsers))
+            {
+                MessageBox.Show("you are not allowed to enter this form because you don't have permission", "Access Denied", MessageBoxButtons.OK);
+
+                return;
+            }
+
+
             frmAddEditUser frm = new frmAddEditUser((int)dgvShow.CurrentRow.Cells[0].Value);
 
             frm.ShowDialog();
@@ -158,6 +253,14 @@ namespace BankSystemWinForm
 
         private void btnFindUser_Click(object sender, EventArgs e)
         {
+            if (!CheckAccessPermission(clsUser.enPermissions.pManageUsers))
+            {
+                MessageBox.Show("you are not allowed to enter this form because you don't have permission", "Access Denied", MessageBoxButtons.OK);
+
+                return;
+            }
+
+
             frmFindUser frm = new frmFindUser();
 
             frm.ShowDialog();
@@ -166,6 +269,14 @@ namespace BankSystemWinForm
 
         private void btnDeleteUser_Click(object sender, EventArgs e)
         {
+
+            if (!CheckAccessPermission(clsUser.enPermissions.pManageUsers))
+            {
+                MessageBox.Show("you are not allowed to enter this form because you don't have permission", "Access Denied", MessageBoxButtons.OK);
+
+                return;
+            }
+
             frmFindUser frm = new frmFindUser(true);
 
             frm.ShowDialog();
@@ -173,6 +284,14 @@ namespace BankSystemWinForm
 
         private void btnUpdateUser_Click(object sender, EventArgs e)
         {
+            if (!CheckAccessPermission(clsUser.enPermissions.pManageUsers))
+            {
+                MessageBox.Show("you are not allowed to enter this form because you don't have permission", "Access Denied", MessageBoxButtons.OK);
+
+                return;
+            }
+
+
             frmUpdateUser frm = new frmUpdateUser();
 
             frm.ShowDialog();
@@ -182,6 +301,14 @@ namespace BankSystemWinForm
 
         private void btnDeposit_Click(object sender, EventArgs e)
         {
+            if (!CheckAccessPermission(clsUser.enPermissions.pTransactions))
+            {
+                MessageBox.Show("you are not allowed to enter this form because you don't have permission", "Access Denied", MessageBoxButtons.OK);
+
+                return;
+            }
+
+
             frmDepositAndWithdraw frm = new frmDepositAndWithdraw(0);
 
             frm.ShowDialog();
@@ -189,6 +316,15 @@ namespace BankSystemWinForm
 
         private void btnWithdraw_Click(object sender, EventArgs e)
         {
+
+            if (!CheckAccessPermission(clsUser.enPermissions.pTransactions))
+            {
+                MessageBox.Show("you are not allowed to enter this form because you don't have permission", "Access Denied", MessageBoxButtons.OK);
+
+                return;
+            }
+
+
             frmDepositAndWithdraw frm = new frmDepositAndWithdraw(-1);
 
             frm.ShowDialog();
@@ -199,6 +335,13 @@ namespace BankSystemWinForm
 
         private void btnTotalBalances_Click(object sender, EventArgs e)
         {
+
+            if (!CheckAccessPermission(clsUser.enPermissions.pTransactions))
+            {
+                MessageBox.Show("you are not allowed to enter this form because you don't have permission", "Access Denied", MessageBoxButtons.OK);
+
+                return;
+            }
 
             dgvShow.DataSource = clsClient.GetTotalBalances();
 
@@ -217,6 +360,15 @@ namespace BankSystemWinForm
 
         private void btnTransfer_Click(object sender, EventArgs e)
         {
+
+            if (!CheckAccessPermission(clsUser.enPermissions.pTransactions))
+            {
+                MessageBox.Show("you are not allowed to enter this form because you don't have permission", "Access Denied", MessageBoxButtons.OK);
+
+                return;
+            }
+
+
             frmTransfer frm = new frmTransfer(_UserName);
 
             frm.ShowDialog();
@@ -225,7 +377,15 @@ namespace BankSystemWinForm
 
         private void btnTransferLogs_Click(object sender, EventArgs e)
         {
-          dgvShow.DataSource = clsTransferLog.GetTransferLogs();
+            if (!CheckAccessPermission(clsUser.enPermissions.pTransactions))
+            {
+                MessageBox.Show("you are not allowed to enter this form because you don't have permission", "Access Denied", MessageBoxButtons.OK);
+
+                return;
+            }
+
+
+            dgvShow.DataSource = clsTransferLog.GetTransferLogs();
 
           dgvShow.ContextMenuStrip = null;
 
@@ -234,10 +394,45 @@ namespace BankSystemWinForm
         private void btnLoginRegisters_Click(object sender, EventArgs e)
         {
 
+            if (!CheckAccessPermission(clsUser.enPermissions.pLoginRegisters))
+            {
+                MessageBox.Show("you are not allowed to enter this form because you don't have permission", "Access Denied", MessageBoxButtons.OK);
+
+                return;
+            }
+
+
             dgvShow.DataSource = clsLoginRegister.GetLoginRegisters();
 
             dgvShow.ContextMenuStrip = null;
 
         }
+
+        private void btnLogOut_Click(object sender, EventArgs e)
+        {
+               this.Close();
+        }
+
+        public bool CheckAccessPermission(clsUser.enPermissions enPermissions)
+        {
+
+            if (this._User.Permissions == (int)clsUser.enPermissions.eAll)
+            {
+                return true;
+            }
+
+
+            if (((int)enPermissions & this._User.Permissions) == (int)enPermissions)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+
+        }
+
+
     }
 }

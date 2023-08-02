@@ -54,6 +54,9 @@
             this.btnTransfer = new System.Windows.Forms.Button();
             this.btnTransferLogs = new System.Windows.Forms.Button();
             this.btnLoginRegisters = new System.Windows.Forms.Button();
+            this.btnLogOut = new System.Windows.Forms.Button();
+            this.lblUserName = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dgvShow)).BeginInit();
             this.contextMenuStrip1.SuspendLayout();
             this.contextMenuStrip2.SuspendLayout();
@@ -63,7 +66,7 @@
             // 
             this.dgvShow.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvShow.ContextMenuStrip = this.contextMenuStrip1;
-            this.dgvShow.Location = new System.Drawing.Point(301, 56);
+            this.dgvShow.Location = new System.Drawing.Point(267, 50);
             this.dgvShow.Name = "dgvShow";
             this.dgvShow.RowHeadersWidth = 51;
             this.dgvShow.RowTemplate.Height = 24;
@@ -155,7 +158,7 @@
             // 
             // btnAddNewUser
             // 
-            this.btnAddNewUser.Location = new System.Drawing.Point(12, 462);
+            this.btnAddNewUser.Location = new System.Drawing.Point(12, 471);
             this.btnAddNewUser.Name = "btnAddNewUser";
             this.btnAddNewUser.Size = new System.Drawing.Size(249, 52);
             this.btnAddNewUser.TabIndex = 8;
@@ -165,7 +168,7 @@
             // 
             // btnDeleteUser
             // 
-            this.btnDeleteUser.Location = new System.Drawing.Point(12, 533);
+            this.btnDeleteUser.Location = new System.Drawing.Point(12, 548);
             this.btnDeleteUser.Name = "btnDeleteUser";
             this.btnDeleteUser.Size = new System.Drawing.Size(249, 52);
             this.btnDeleteUser.TabIndex = 9;
@@ -175,7 +178,7 @@
             // 
             // btnUpdateUser
             // 
-            this.btnUpdateUser.Location = new System.Drawing.Point(12, 600);
+            this.btnUpdateUser.Location = new System.Drawing.Point(12, 622);
             this.btnUpdateUser.Name = "btnUpdateUser";
             this.btnUpdateUser.Size = new System.Drawing.Size(249, 52);
             this.btnUpdateUser.TabIndex = 10;
@@ -185,7 +188,7 @@
             // 
             // btnFindUser
             // 
-            this.btnFindUser.Location = new System.Drawing.Point(12, 658);
+            this.btnFindUser.Location = new System.Drawing.Point(12, 690);
             this.btnFindUser.Name = "btnFindUser";
             this.btnFindUser.Size = new System.Drawing.Size(249, 52);
             this.btnFindUser.TabIndex = 11;
@@ -218,7 +221,7 @@
             // 
             // btnDeposit
             // 
-            this.btnDeposit.Location = new System.Drawing.Point(314, 545);
+            this.btnDeposit.Location = new System.Drawing.Point(267, 531);
             this.btnDeposit.Name = "btnDeposit";
             this.btnDeposit.Size = new System.Drawing.Size(249, 52);
             this.btnDeposit.TabIndex = 12;
@@ -228,7 +231,7 @@
             // 
             // btnWithdraw
             // 
-            this.btnWithdraw.Location = new System.Drawing.Point(586, 545);
+            this.btnWithdraw.Location = new System.Drawing.Point(522, 531);
             this.btnWithdraw.Name = "btnWithdraw";
             this.btnWithdraw.Size = new System.Drawing.Size(249, 52);
             this.btnWithdraw.TabIndex = 13;
@@ -238,7 +241,7 @@
             // 
             // btnTotalBalances
             // 
-            this.btnTotalBalances.Location = new System.Drawing.Point(854, 545);
+            this.btnTotalBalances.Location = new System.Drawing.Point(786, 531);
             this.btnTotalBalances.Name = "btnTotalBalances";
             this.btnTotalBalances.Size = new System.Drawing.Size(249, 52);
             this.btnTotalBalances.TabIndex = 14;
@@ -270,7 +273,7 @@
             // 
             // btnTransfer
             // 
-            this.btnTransfer.Location = new System.Drawing.Point(1128, 545);
+            this.btnTransfer.Location = new System.Drawing.Point(1041, 531);
             this.btnTransfer.Name = "btnTransfer";
             this.btnTransfer.Size = new System.Drawing.Size(249, 52);
             this.btnTransfer.TabIndex = 17;
@@ -280,7 +283,7 @@
             // 
             // btnTransferLogs
             // 
-            this.btnTransferLogs.Location = new System.Drawing.Point(314, 635);
+            this.btnTransferLogs.Location = new System.Drawing.Point(303, 635);
             this.btnTransferLogs.Name = "btnTransferLogs";
             this.btnTransferLogs.Size = new System.Drawing.Size(249, 52);
             this.btnTransferLogs.TabIndex = 18;
@@ -298,11 +301,44 @@
             this.btnLoginRegisters.UseVisualStyleBackColor = true;
             this.btnLoginRegisters.Click += new System.EventHandler(this.btnLoginRegisters_Click);
             // 
+            // btnLogOut
+            // 
+            this.btnLogOut.Location = new System.Drawing.Point(12, 752);
+            this.btnLogOut.Name = "btnLogOut";
+            this.btnLogOut.Size = new System.Drawing.Size(249, 52);
+            this.btnLogOut.TabIndex = 20;
+            this.btnLogOut.Text = "Log Out";
+            this.btnLogOut.UseVisualStyleBackColor = true;
+            this.btnLogOut.Click += new System.EventHandler(this.btnLogOut_Click);
+            // 
+            // lblUserName
+            // 
+            this.lblUserName.AutoSize = true;
+            this.lblUserName.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblUserName.Location = new System.Drawing.Point(1166, 9);
+            this.lblUserName.Name = "lblUserName";
+            this.lblUserName.Size = new System.Drawing.Size(148, 32);
+            this.lblUserName.TabIndex = 21;
+            this.lblUserName.Text = "UserName";
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(1004, 9);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(156, 32);
+            this.label1.TabIndex = 22;
+            this.label1.Text = "UserName:";
+            // 
             // frmListClients
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1481, 762);
+            this.ClientSize = new System.Drawing.Size(1481, 816);
+            this.Controls.Add(this.label1);
+            this.Controls.Add(this.lblUserName);
+            this.Controls.Add(this.btnLogOut);
             this.Controls.Add(this.btnLoginRegisters);
             this.Controls.Add(this.btnTransferLogs);
             this.Controls.Add(this.btnTransfer);
@@ -359,6 +395,9 @@
         private System.Windows.Forms.Button btnTransfer;
         private System.Windows.Forms.Button btnTransferLogs;
         private System.Windows.Forms.Button btnLoginRegisters;
+        private System.Windows.Forms.Button btnLogOut;
+        private System.Windows.Forms.Label lblUserName;
+        private System.Windows.Forms.Label label1;
     }
 }
 
