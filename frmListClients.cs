@@ -10,17 +10,17 @@ namespace BankSystemWinForm
 {
     public partial class frmListClients : Form
     {
-        /*
-         Group buttons under one Button
-         UI
-         */
-
-
+   
         string _UserName;
+        string _PinCode;
 
         float TotalBalances = 0;
 
         clsUser _User;
+
+        public delegate void DataBackEventHandler(string UserName , string PinCode);
+
+        public event DataBackEventHandler DataBack;
         public frmListClients(clsUser User)
         {
             InitializeComponent();
@@ -28,6 +28,8 @@ namespace BankSystemWinForm
             this._User = User;   
 
             _UserName = User.UserName;
+
+            _PinCode = User.PinCode;
 
             lblUserName.Text = _UserName;
         }
@@ -410,8 +412,15 @@ namespace BankSystemWinForm
 
         private void btnLogOut_Click(object sender, EventArgs e)
         {
-               this.Close();
+            _UserName = "";
+            _PinCode = "";
+
+            DataBack?.Invoke(_UserName, _PinCode);
+            this.Close();
         }
+
+      
+
 
         public bool CheckAccessPermission(clsUser.enPermissions enPermissions)
         {

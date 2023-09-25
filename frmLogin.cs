@@ -64,12 +64,24 @@ namespace BankSystemWinForm
 
                     frmListClients frm = new frmListClients(_UserFind);
 
+                    frm.DataBack += frmListClients_DataBack;
+
                     frm.ShowDialog();
 
-                  
+                    
 
                 }
             }
+        }
+
+        public void frmListClients_DataBack(string UserName , string PinCode)
+        {
+            txtUserName.Text = UserName;
+            txtPinCode.Text = PinCode;
+        }
+
+        private void frmLogin_Load(object sender, EventArgs e)
+        {
         }
     }
 }
