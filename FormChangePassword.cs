@@ -31,14 +31,7 @@ namespace BankSystemWinForm
             {
                 if (txtNewPassword.Text == txtConfirmPassword.Text && txtNewPassword.Text != "") 
                 {
-                    if (_Person.UpdatePinCode(txtNewPassword.Text))
-                    {
-                    MessageBox.Show("Password Changed Successfully", "Success Message", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                        this.Close();
-                        return;
-                    }
-                    
-
+                    ShowSuccessfulMessageForChangingPassword();
                 } else
                 {
                     if (txtNewPassword.Text == "" || txtConfirmPassword.Text == "")
@@ -52,17 +45,30 @@ namespace BankSystemWinForm
                 }
             } else
             {
-                if (txtCurrentPassword.Text == "")
-                {
-                    MessageBox.Show("Please Enter Current Password", "Error Message", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    return;
-                }
+                ShowMessageForEmptyCurrentPassword();
+         
                 MessageBox.Show("Current Password is Wrong , Please Enter Your Current Password Again","Error Message", MessageBoxButtons.OK,MessageBoxIcon.Error);
             }
 
         }
 
-    
+        private void ShowSuccessfulMessageForChangingPassword()
+        {
+            if (_Person.UpdatePinCode(txtNewPassword.Text))
+            {
+                MessageBox.Show("Password Changed Successfully", "Success Message", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                this.Close();
+                return;
+            }
+        }
+        private void ShowMessageForEmptyCurrentPassword()
+        {
+            if (txtCurrentPassword.Text == "")
+            {
+                MessageBox.Show("Please Enter Current Password", "Error Message", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+        }
 
         private void btnChangePassword_Click(object sender, EventArgs e)
         {
