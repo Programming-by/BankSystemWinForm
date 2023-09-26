@@ -33,7 +33,6 @@ namespace BankSystemWinForm
         {
             _Client1 = clsClient.Find(txtAccNumberFrom.Text);
 
-
             if (_Client1 == null)
             {
                 MessageBox.Show("Wrong Account Number ,Please Enter a valid Account Number");
@@ -67,61 +66,71 @@ namespace BankSystemWinForm
 
         private void btnTransfer_Click(object sender, EventArgs e)
         {
-            if (_Client1 == null || _Client2 == null || txtTransferAmount.Text == null)
+            ShowMessageForEmptyFields();
+
+            ShowMessageForTransferFromToSameAccount();
+
+            if (Convert.ToInt32(_Client1.Balance) > 0)
             {
-                MessageBox.Show("Empty Fields", "Failed", MessageBoxButtons.OK);
-
-                return;
+                if (clsClient.Withdraw(_Client1.AccountNumber, Convert.ToInt32(txtTransferAmount.Text)))
+                {
+                    if (clsClient.Deposit(_Client2.AccountNumber, Convert.ToInt32(txtTransferAmount.Text)))
+                    {
+                        TransferLog();
+                    }
+                } else
+                {
+                  MessageBox.Show("the Amount you are trying to transfer from is above your Account Balance", "failed to transfer", MessageBoxButtons.OK);
+                }
+            } else
+            {
+                MessageBox.Show("Account is Empty", "failed to transfer", MessageBoxButtons.OK);
             }
-         
+        }
 
+        private void ShowMessageForTransferFromToSameAccount()
+        {
             if (_Client1.AccountNumber == _Client2.AccountNumber)
             {
                 MessageBox.Show("Can't Transfer From To Same Account", "failed to transfer", MessageBoxButtons.OK);
                 lblFoundAccountNumber.Text = "";
                 lblFoundAccountNumber2.Text = "";
                 return;
-            } 
-
-            if (Convert.ToInt32(_Client1.Balance) > 0)
+            }
+        }
+        private void ShowMessageForEmptyFields()
+        {
+            if (_Client1 == null || _Client2 == null || txtTransferAmount.Text == null)
             {
-                if (clsClient.Withdraw(_Client1.AccountNumber, Convert.ToInt32(txtTransferAmount.Text)))
-                {
+                MessageBox.Show("Empty Fields", "Failed", MessageBoxButtons.OK);
 
-                    if (clsClient.Deposit(_Client2.AccountNumber, Convert.ToInt32(txtTransferAmount.Text)))
-                    {
-                         _TransferLog = new clsTransferLog();
+                return;
+            }
+        }
+        private void TransferLog()
+        {
+            _TransferLog = new clsTransferLog();
 
-                        _TransferLog.Date = DateTime.Now;
-                        _TransferLog.SourceAcc = _Client1.AccountNumber;
-                        _TransferLog.DestinationAcc = _Client2.AccountNumber;
-                        _TransferLog.Amount = txtTransferAmount.Text;
-                        _TransferLog.SourceBalance = _Client1.Balance;
-                        _TransferLog.DestinationBalance = _Client2.Balance;
-                        _TransferLog.UserName =  _UserName;
+            _TransferLog.Date = DateTime.Now;
+            _TransferLog.SourceAcc = _Client1.AccountNumber;
+            _TransferLog.DestinationAcc = _Client2.AccountNumber;
+            _TransferLog.Amount = txtTransferAmount.Text;
+            _TransferLog.SourceBalance = _Client1.Balance;
+            _TransferLog.DestinationBalance = _Client2.Balance;
+            _TransferLog.UserName = _UserName;
 
-                        if (_TransferLog.Save())
-                        {
-
-                            Console.WriteLine("Transfer Log Saved Successfully");
-                        }
-                        else
-                        {
-                            Console.WriteLine("Transfer Log failed to save");
-                        }
-
-                        MessageBox.Show("Transfered Successfully","Transfered",MessageBoxButtons.OK);
-
-                    }
-
-                }
-
+            if (_TransferLog.Save())
+            {
+                Console.WriteLine("Transfer Log Saved Successfully");
+            }
+            else
+            {
+                Console.WriteLine("Transfer Log failed to save");
             }
 
-
-          
-
-
+            MessageBox.Show("Transferred Successfully", "Transferred", MessageBoxButtons.OK);
         }
+    
+    
     }
 }

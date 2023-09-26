@@ -34,14 +34,9 @@ namespace BankSystemWinForm
                     ShowSuccessfulMessageForChangingPassword();
                 } else
                 {
-                    if (txtNewPassword.Text == "" || txtConfirmPassword.Text == "")
-                    {
-                        MessageBox.Show("Please Enter Password", "Error Message", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                        return;
-                    }
+                    ShowMessageForEmptyPassword();
 
                     MessageBox.Show("Passwords are not identical , Please Enter them Successfully", "Error Message", MessageBoxButtons.OK,MessageBoxIcon.Error);
-
                 }
             } else
             {
@@ -70,6 +65,14 @@ namespace BankSystemWinForm
             }
         }
 
+        private void ShowMessageForEmptyPassword()
+        {
+            if (txtNewPassword.Text == "" || txtConfirmPassword.Text == "")
+            {
+                MessageBox.Show("Please Enter Password", "Error Message", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+        }
         private void btnChangePassword_Click(object sender, EventArgs e)
         {
            ChangePassword();
