@@ -9,8 +9,7 @@ using static BankSystemWinForm.frmAddEditUser;
 namespace BankSystemWinForm
 {
     public partial class frmListClients : Form
-    {
-   
+    {   
         string _UserName;
         string _PinCode;
 
@@ -30,8 +29,6 @@ namespace BankSystemWinForm
             _UserName = User.UserName;
 
             _PinCode = PinCode;
-
-            lblUserName.Text = _UserName;
         }
 
 
@@ -120,8 +117,6 @@ namespace BankSystemWinForm
 
         }
 
-      
-
         private void listClients_Click(object sender, EventArgs e)
         {
             if (!CheckAccessPermission(clsUser.enPermissions.pShowAllClients))
@@ -176,6 +171,8 @@ namespace BankSystemWinForm
         private void _RefreshUsersList()
         {
             dgvShow.DataSource = clsUser.GetAllUsers();
+            dgvShow.ContextMenuStrip = contextMenuStrip2;
+
         }
 
         private void btnListUsers_Click(object sender, EventArgs e)
@@ -188,9 +185,6 @@ namespace BankSystemWinForm
             }
 
             _RefreshUsersList();
-
-            dgvShow.ContextMenuStrip = contextMenuStrip2;
-
         }
 
         private void btnAddNewUser_Click(object sender, EventArgs e)
@@ -335,6 +329,21 @@ namespace BankSystemWinForm
 
         }
 
+       private void _RefreshTotalBalancesList()
+        {
+            dgvShow.DataSource = clsClient.GetTotalBalances();
+
+            dgvShow.ContextMenuStrip = null;
+        }
+
+        private void SumTotalBalances()
+        {
+            TotalBalances = clsClient.Sum();
+            lblTotalBalances.Text = TotalBalances.ToString() + "$";
+            lblTotalBalances.Visible = true;
+            lblTotalBalancesText.Visible = true;
+        }
+
         private void btnTotalBalances_Click(object sender, EventArgs e)
         {
 
@@ -345,24 +354,13 @@ namespace BankSystemWinForm
                 return;
             }
 
-            dgvShow.DataSource = clsClient.GetTotalBalances();
+            _RefreshTotalBalancesList();
 
-            dgvShow.ContextMenuStrip = null;
-
-            TotalBalances = clsClient.Sum();
-
-            lblTotalBalances.Text = TotalBalances.ToString() + "$";
-
-            lblTotalBalancesText.Visible = true;
-            lblTotalBalances.Visible = true;
-
-
-
+            SumTotalBalances();
         }
 
         private void btnTransfer_Click(object sender, EventArgs e)
         {
-
             if (!CheckAccessPermission(clsUser.enPermissions.pTransactions))
             {
                 MessageBox.Show("you are not allowed to enter this form because you don't have permission", "Access Denied", MessageBoxButtons.OK);
@@ -377,6 +375,13 @@ namespace BankSystemWinForm
 
         }
 
+        private void _RefreshTransferLogsList()
+        {
+            dgvShow.DataSource = clsTransferLog.GetTransferLogs();
+
+            dgvShow.ContextMenuStrip = null;
+        }
+
         private void btnTransferLogs_Click(object sender, EventArgs e)
         {
             if (!CheckAccessPermission(clsUser.enPermissions.pTransactions))
@@ -386,16 +391,17 @@ namespace BankSystemWinForm
                 return;
             }
 
-
-            dgvShow.DataSource = clsTransferLog.GetTransferLogs();
-
-          dgvShow.ContextMenuStrip = null;
-
+            _RefreshTransferLogsList();
         }
 
+        private void _RefreshLoginRegistersList()
+        {
+            dgvShow.DataSource = clsLoginRegister.GetLoginRegisters();
+
+            dgvShow.ContextMenuStrip = null;
+        }
         private void btnLoginRegisters_Click(object sender, EventArgs e)
         {
-
             if (!CheckAccessPermission(clsUser.enPermissions.pLoginRegisters))
             {
                 MessageBox.Show("you are not allowed to enter this form because you don't have permission", "Access Denied", MessageBoxButtons.OK);
@@ -403,11 +409,7 @@ namespace BankSystemWinForm
                 return;
             }
 
-
-            dgvShow.DataSource = clsLoginRegister.GetLoginRegisters();
-
-            dgvShow.ContextMenuStrip = null;
-
+            _RefreshLoginRegistersList();
         }
 
         private void btnLogOut_Click(object sender, EventArgs e)
@@ -445,6 +447,11 @@ namespace BankSystemWinForm
 
             frm.ShowDialog();
 
+        }
+
+        private void frmListClients_Load(object sender, EventArgs e)
+        {
+            lblUserName.Text = _UserName;
         }
     }
 }

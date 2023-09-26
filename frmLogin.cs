@@ -24,30 +24,12 @@ namespace BankSystemWinForm
            
             if (_User == null )
             {
-
-                lblInvalidMessage.Visible = true;
-                Counter--;
-
-                if (Counter == 2)
-                {
-                    lblInvalidMessage.Text = "Invalid UserName/Password , you have 2 more attempts";
-                }
-
-                if (Counter == 1)
-                {
-                    lblInvalidMessage.Text = "Invalid UserName/Password , you have 1 more attempt";
-                }
-
-                if (Counter == 0)
-                {
-                    lblInvalidMessage.Text = "you are blocked from entering the system";
-                    btnLogin.Enabled = false;
-                }
+                ShowInvalidMessageWhenLoginFailed();
+                
             } else
             {
                 if (txtUserName.Text == _User.UserName && txtPinCode.Text == _User.PinCode)
                 {
-
                     LoginRegister();
 
                     _PinCode = _User.PinCode;
@@ -61,7 +43,28 @@ namespace BankSystemWinForm
             }
         }
 
+        private void ShowInvalidMessageWhenLoginFailed()
+        {
+            lblInvalidMessage.Visible = true;
+            Counter--;
 
+            if (Counter == 2)
+            {
+                lblInvalidMessage.Text = "Invalid UserName/Password , you have 2 more attempts";
+            }
+
+            if (Counter == 1)
+            {
+                lblInvalidMessage.Text = "Invalid UserName/Password , you have 1 more attempt";
+            }
+
+            if (Counter == 0)
+            {
+                lblInvalidMessage.Text = "you are blocked from entering the system";
+                btnLogin.Enabled = false;
+            }
+
+        }
         private void LoginRegister()
         {
             _LoginRegister = new clsLoginRegister();

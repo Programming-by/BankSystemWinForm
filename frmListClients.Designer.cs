@@ -372,6 +372,7 @@
             this.Controls.Add(this.dgvShow);
             this.Name = "frmListClients";
             this.Text = "Form1";
+            this.Load += new System.EventHandler(this.frmListClients_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvShow)).EndInit();
             this.contextMenuStrip1.ResumeLayout(false);
             this.contextMenuStrip2.ResumeLayout(false);
