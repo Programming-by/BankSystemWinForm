@@ -90,30 +90,41 @@ namespace BankSystemWinForm
             {
                 if (Convert.ToInt32(_Client.Balance) > 0)
                 {
-
-                    if (clsClient.Withdraw(_Client.AccountNumber, Convert.ToInt32(txtDepositOrWithdrawAmount.Text)))
-                    {
-                        lblDepositOrWithdraw.Text = "Withdrawed " + txtDepositOrWithdrawAmount.Text + " Successfully";
-                        lblDepositOrWithdraw.Visible = true;
-                    }
-
+                    Withdraw();   
                 }
                 else
                 {
                     lblDepositOrWithdraw.Text = "unable to withdraw, because there is no money in the account";
-
                 }
             }
             else
             {
-                if (clsClient.Deposit(_Client.AccountNumber, Convert.ToInt32(txtDepositOrWithdrawAmount.Text)))
-                {
-                    lblDepositOrWithdraw.Text = "Deposited " + txtDepositOrWithdrawAmount.Text + " Successfully";
-                    lblDepositOrWithdraw.Visible = true;
-                }
+                Deposit();  
             }
 
 
+        }
+        private void Withdraw()
+        {
+            if (clsClient.Withdraw(_Client.AccountNumber, Convert.ToInt32(txtDepositOrWithdrawAmount.Text)))
+            {
+                lblDepositOrWithdraw.Text = "Withdrew " + txtDepositOrWithdrawAmount.Text + " Successfully";
+                lblDepositOrWithdraw.Visible = true;
+            }
+            else
+            {
+                lblDepositOrWithdraw.Text = "you can't withdraw above your balance";
+            }
+
+        }
+
+        private void Deposit()
+        {
+            if (clsClient.Deposit(_Client.AccountNumber, Convert.ToInt32(txtDepositOrWithdrawAmount.Text)))
+            {
+                lblDepositOrWithdraw.Text = "Deposited " + txtDepositOrWithdrawAmount.Text + " Successfully";
+                lblDepositOrWithdraw.Visible = true;
+            }
         }
 
         private void frmDepositAndWithdraw_Load(object sender, EventArgs e)
