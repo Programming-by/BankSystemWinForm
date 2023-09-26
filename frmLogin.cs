@@ -9,6 +9,7 @@ namespace BankSystemWinForm
     {
         clsUser _User;
         clsUser _UserFind;
+        string _PinCode;
         int Counter = 3;
         clsLoginRegister _LoginRegister;
         public frmLogin()
@@ -49,7 +50,8 @@ namespace BankSystemWinForm
                     _LoginRegister = new clsLoginRegister();
 
                     _UserFind = clsUser.Find(_User.UserName);
-                
+                    _PinCode = _User.PinCode;
+
                     _LoginRegister.Date = DateTime.Now;
                     _LoginRegister.UserName = _User.UserName;
                     _LoginRegister.Password = _User.PinCode;
@@ -62,7 +64,7 @@ namespace BankSystemWinForm
                     }
 
 
-                    frmListClients frm = new frmListClients(_UserFind);
+                    frmListClients frm = new frmListClients(_UserFind,_PinCode);
 
                     frm.DataBack += frmListClients_DataBack;
 
@@ -78,10 +80,6 @@ namespace BankSystemWinForm
         {
             txtUserName.Text = UserName;
             txtPinCode.Text = PinCode;
-        }
-
-        private void frmLogin_Load(object sender, EventArgs e)
-        {
         }
     }
 }

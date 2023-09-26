@@ -90,6 +90,7 @@
             this.txtPinCode.Location = new System.Drawing.Point(207, 209);
             this.txtPinCode.Multiline = true;
             this.txtPinCode.Name = "txtPinCode";
+            this.txtPinCode.PasswordChar = '*';
             this.txtPinCode.Size = new System.Drawing.Size(325, 32);
             this.txtPinCode.TabIndex = 5;
             // 
@@ -119,7 +120,6 @@
             this.Controls.Add(this.label1);
             this.Name = "frmLogin";
             this.Text = "frmLogin";
-            this.Load += new System.EventHandler(this.frmLogin_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

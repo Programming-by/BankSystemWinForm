@@ -57,6 +57,7 @@
             this.btnLogOut = new System.Windows.Forms.Button();
             this.lblUserName = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
+            this.btnChangePinCode = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvShow)).BeginInit();
             this.contextMenuStrip1.SuspendLayout();
             this.contextMenuStrip2.SuspendLayout();
@@ -331,11 +332,22 @@
             this.label1.TabIndex = 22;
             this.label1.Text = "UserName:";
             // 
+            // btnChangePinCode
+            // 
+            this.btnChangePinCode.Location = new System.Drawing.Point(878, 635);
+            this.btnChangePinCode.Name = "btnChangePinCode";
+            this.btnChangePinCode.Size = new System.Drawing.Size(249, 52);
+            this.btnChangePinCode.TabIndex = 23;
+            this.btnChangePinCode.Text = "Change Password";
+            this.btnChangePinCode.UseVisualStyleBackColor = true;
+            this.btnChangePinCode.Click += new System.EventHandler(this.btnChangePinCode_Click);
+            // 
             // frmListClients
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1481, 816);
+            this.Controls.Add(this.btnChangePinCode);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.lblUserName);
             this.Controls.Add(this.btnLogOut);
@@ -398,6 +410,7 @@
         private System.Windows.Forms.Button btnLogOut;
         private System.Windows.Forms.Label lblUserName;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Button btnChangePinCode;
     }
 }
 

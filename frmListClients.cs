@@ -21,7 +21,7 @@ namespace BankSystemWinForm
         public delegate void DataBackEventHandler(string UserName , string PinCode);
 
         public event DataBackEventHandler DataBack;
-        public frmListClients(clsUser User)
+        public frmListClients(clsUser User, string PinCode)
         {
             InitializeComponent();
 
@@ -29,7 +29,7 @@ namespace BankSystemWinForm
 
             _UserName = User.UserName;
 
-            _PinCode = User.PinCode;
+            _PinCode = PinCode;
 
             lblUserName.Text = _UserName;
         }
@@ -418,10 +418,6 @@ namespace BankSystemWinForm
             DataBack?.Invoke(_UserName, _PinCode);
             this.Close();
         }
-
-      
-
-
         public bool CheckAccessPermission(clsUser.enPermissions enPermissions)
         {
 
@@ -442,6 +438,13 @@ namespace BankSystemWinForm
 
         }
 
+        private void btnChangePinCode_Click(object sender, EventArgs e)
+        {
 
+            FormChangePassword frm = new FormChangePassword(_User);
+
+            frm.ShowDialog();
+
+        }
     }
 }
